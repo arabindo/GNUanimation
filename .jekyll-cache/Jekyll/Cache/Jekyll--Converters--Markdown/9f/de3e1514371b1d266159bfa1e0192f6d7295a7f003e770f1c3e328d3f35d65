@@ -1,0 +1,215 @@
+I"1.<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
+
+<center> <h2> Table of Contents </h2> </center>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Simple Animation</strong></th>
+      <th style="text-align: center"><strong>Animate simple physical system</strong></th>
+      <th style="text-align: center"><strong>Animate using Data file</strong></th>
+      <th style="text-align: center"><strong>Conclusion</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#introduction">Introduction</a></td>
+      <td style="text-align: center">Coming Soon!</td>
+      <td style="text-align: center">Coming Soon!</td>
+      <td style="text-align: center">Coming Soon!</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#why-gnuplot">Why GNUPlot</a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#the-final-goal">The Final Goal</a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#scripted-gnuplot">Scripted GNUPlot</a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#your-first-animation---the-hello-world">The ‘Hello world!’</a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#tracing-a-cycloid">Animate a Cycloid</a></td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Visualizing a system by plotting graph is alaways of great interest for practising professionals in any stream. But the advancement of technology now allow us more than just plotting. Now a days “Just plotting” is an old fashion. Either it be teaching or presenting an idea in front of audience, or just for self learning, it is always a good idea to animate the system somehow. Or yoy may just want to plot a time varying graph. Here I’ll discuss techniques and tricks for the same.</p>
+
+<h2 id="why-gnuplot">Why GNUPlot</h2>
+
+<p>GNUPlot is simple, elegant and great for <code class="language-plaintext highlighter-rouge">First and Fast</code> learning. Although there are several packages/software, some are too advanced, we will be using good old GNUPlot. My personal belive(fortunately, many people agree to that) is that if you can learn one such package, the skill is transfarable. So you can go on learning as per your preference.</p>
+
+<h2 id="the-final-goal">The Final Goal</h2>
+
+<p>I belive, most of you is already equipped with Lagrangian and Hamiltonian formalism. So the idea is to show the technique to produce GIFs() and then to show how to simulate a simple system when the Lagrangian(or Hamiltonian) of the system is is given a priori. After the second half, reader must be able to animate simple systems of their choice. In a later post I’ll also show how to do animation from a data file. That will give you a wing to use GNUPlot with any other programming language. Although GNUPlot terminal can be linked to other programming languages, let’s don’t make thing complicated with those technical jargon. Now it’s enough of hunky-junky. Let’s get into the topic with so called ‘hello-world’ GNUPlot scipt for animation.</p>
+
+<h1 id="scripted-gnuplot">Scripted GNUPlot</h1>
+
+<p>Unlike writting command directly in the terminal, we can create a simple text file listing all the commands. Save it with an extension ‘.gnu’(say, cos.gnu). Then from terminal just type <code class="language-plaintext highlighter-rouge">gnuplot cos.gnu</code> and hit <code class="language-plaintext highlighter-rouge">Enter</code>. The file may contain the following</p>
+<pre><code class="language-gnuplot">reset
+set term qt
+set xrange[-2*pi:2*pi]
+set yrange[-1.5:1.5]
+plot cos(x)
+reread #optional
+</code></pre>
+<blockquote>
+  <p>Sometimes it is convenient to put <code class="language-plaintext highlighter-rouge">reread</code> statement at the end line. It’ll keep the plotting window open. For some system it may not be required for ordinary plotting. However, if you’re using <code class="language-plaintext highlighter-rouge">reread</code> , then keep in your mind that closing the plot window will not do the job, it;ll pop up again. Rather you would like to execute <code class="language-plaintext highlighter-rouge">Ctrl+C</code> in the terminal to stop the execution and close the plotting window.</p>
+</blockquote>
+
+<p>Now let’s have a train of sine wave</p>
+
+<h2 id="your-first-animation---the-hello-world">Your First Animation - The ‘Hello world!’</h2>
+
+<p><img src="/assets/images/sinetrain.gif" alt="Sine Train" width="300" /></p>
+
+<pre><code class="language-gnuplot">reset
+set term qt
+set nokey #Optional
+set title 'Sine wave train'
+set xrange[-2*pi:2*pi]
+set yrange[-1.5:1.5]
+func(x, w, t) = sin(x + w*t)
+do for[loopNo=1:100]{
+    plot func(x, 0.5, loopNo)
+}
+reread
+</code></pre>
+<blockquote>
+  <p>Output in your screen is too fast, isn’t it? No problem we will fix it later. Have some patience! :P</p>
+</blockquote>
+
+<p><strong>Notice that we’ve used <code class="language-plaintext highlighter-rouge">plot</code> command within the loop. And that’s the trick, you’re just plotting ‘a’ thing over and over again for different instances(here loopNo) and you get the animation like output. There are various method to save this animaation. We will discuss those time to time in the various examples</strong></p>
+
+<h3 id="note">NOTE:</h3>
+<ul>
+  <li>Indentation of code block is absolutely unnecessary to GNUPlot. It’s just for our own readability.</li>
+  <li>Optionally, you can add a line <code class="language-plaintext highlighter-rouge">set nokey</code>(As I’ve done). It’ll disable legend.</li>
+  <li>Here in the <code class="language-plaintext highlighter-rouge">plot</code> line one can directly use <code class="language-plaintext highlighter-rouge">plot sin(x + 0.5*i)</code>, but the notion of function will be useful in the next example, so I thought to introduce this beforehand. In case you haven’t seen this before, it is just a black-box kind of thing, where you define the function with specific argument(in this case, x, w, t). Whenever required, you just call that function with specific argument. That’s it!</li>
+</ul>
+
+<p>Now, we’ll look into a better picture, a better animation!</p>
+
+<h2 id="tracing-a-cycloid">Tracing a Cycloid</h2>
+
+<p><img src="/assets/images/cycloid.gif" alt="Cycloid" /></p>
+
+<p>We will build this script step by step! At the end we will see a stunning animated cycloid just like above GIF.</p>
+
+<h3 id="lets-get-started">Let’s get started</h3>
+
+<p>The idea is to trace a particular point of a moving circle. So, first thing first. We will need a circle. For that we will consider the parametric setup.</p>
+
+<pre><code class="language-gnuplot">#setting up the enviorment
+
+reset 
+set term qt
+set nokey
+
+set paramteric
+
+s= 4 # radius of the circle
+plot s*cos(t), s*sin(t) 
+# in the parametric enviorment, the parameter is predefined as 't' by GNUPlot itself
+
+reread #you must be executing Ctrl+C in the terminal to stop the execution.
+</code></pre>
+<ul>
+  <li>
+    <p>You may see a elongated/squezed circle in the output. You can get rid of this by scaling the size. But for that you must be specify the <code class="language-plaintext highlighter-rouge">xrange</code> and <code class="language-plaintext highlighter-rouge">yrange</code>. Then you can calculate the ratio. But if you’re lazy enough like me, you might want a better solution. The trick is to set the ratio to be -1. In that case GNUPlot will do the job for you. So just add another line to the above script <code class="language-plaintext highlighter-rouge">set size ratio -1</code>.</p>
+  </li>
+  <li>Next we want that the circle must be moving. How we will do that? Well, one possible way is to move the centre and plot a circle for every instances. For that, let us define two function. Namely <code class="language-plaintext highlighter-rouge">cirX</code> and <code class="language-plaintext highlighter-rouge">cirY</code> with three argument, the “intrinsic parameter”(that ‘t’, you may change the variable for function since it’s a dummy one, there shouldn’t be a problem. I’ll call it <code class="language-plaintext highlighter-rouge">par</code> here. ), radius of the circle and the the instances(loop number).
+    <pre><code class="language-gnuplot">cirX(r, i, par) = r*i + r*cos(par)
+# the term r*oi is added due to the fact, as time passes, circle will be rotated by an angle 'i'(say),
+# so the linear distance traveled by the circle is radius*angle(=r*i)
+
+cirY(r, i, par)= r + r*sin(par) # Although we are not using 'par' here, so you maynot mention it.
+# The additional r term is because I wanted that the circle must be moving on the y=0 line. 
+# If you ware okay with the circle is moving along y=-r axis, then you need not to at that term.
+</code></pre>
+  </li>
+  <li>Okay fine, Now we need to trace a particular point on a circle. For that again we will define another set of two functions, <code class="language-plaintext highlighter-rouge">px(r, i)</code> and <code class="language-plaintext highlighter-rouge">py(r, i)</code>
+    <pre><code class="language-gnuplot">px(r, i) = r*i + r*cos(i)
+py(r, i) = r + r*sin(i)
+# Here we haven't pass the parameter, because we are concerned about a particular point only,
+# which is located at an angle 'i'
+</code></pre>
+  </li>
+  <li>What’s next? That old good trick, we will be plotting the circle for each instances. So here the each instances mean we will be changing the angle. Since the <code class="language-plaintext highlighter-rouge">sin</code> and <code class="language-plaintext highlighter-rouge">cos</code> are defined to take angle in radians as the argument, we must convert the angle into radian. After plugging everything here discussed, we have the following script:
+    <pre><code class="language-gnuplot"># setting up the enviorment
+reset 
+set term qt
+set size ratio -1
+set nokey
+set xrange[-pi:7*pi] 
+# set maximum range greater than 2*pi*r*loop_no
+  
+set yrange[0:5] 
+# must be grater than radius of circle
+# If you do not want to uplift the cirY by the radius, 
+# then you must extend the yrange to the negative axis.
+
+set parametric
+  
+# setting up the function
+cirX(r, i, t) = r*i + r*cos(t)
+cirY(r, i, t)= r + r*sin(t)
+px(r, i) = r*i + r*cos(i)
+py(r, i) = r + r*sin(i)
+
+# Defining the radius and coversion factor
+s = 2
+conv = pi/180
+
+do for[deg=0:360*2]{
+
+    rad = deg*conv
+      
+    # plotting the circle for each instances
+    # If you haven't pass three argument, you must pass only s and t through cirY!
+    plot cirX(s, rad, t), cirY(s, rad, t)
+
+    # plot an arrow with nohead(actually the radius)
+    # Notice that, we plot the arrow from s*rad (linear distance traversed by the circle.)
+    set arrow 1 nohead from s*rad, s to px(s, rad), py(s,rad) lc rgb 'red'
+      
+    # The circle object is a point on a circle  
+    set object 2 circle at px(s, rad), py(s, rad) fc rgb 'red' size 0.05 fs solid front
+}
+reread
+</code></pre>
+  </li>
+</ul>
+
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+
+:ET
