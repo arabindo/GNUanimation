@@ -1,4 +1,4 @@
-I"�2<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
+I"C=<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
 
 <blockquote>
   <p><strong>DISCLAIMER:</strong> The <a href="#tracing-a-cycloid">“Animate a Cycloid”</a> topic is developed step by step. There is a some repeatation of large code blocks. So it may seems to be lengthy but it is actually not!</p>
@@ -17,49 +17,49 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><a href="#introduction">Introduction</a></td>
+      <td style="text-align: left"><a href="#introduction">1. Introduction</a></td>
       <td style="text-align: center">Coming Soon!</td>
       <td style="text-align: center">Coming Soon!</td>
       <td style="text-align: center">Coming Soon!</td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#why-gnuplot">Why GNUPlot</a></td>
+      <td style="text-align: left"><a href="#why-gnuplot">2. Why GNUPlot</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#the-final-goal">The Final Goal</a></td>
+      <td style="text-align: left"><a href="#the-final-goal">3. The Final Goal</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#scripted-gnuplot">Scripted GNUPlot</a></td>
+      <td style="text-align: left"><a href="#scripted-gnuplot">4. Scripted GNUPlot</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#your-first-animation---the-hello-world">The ‘Hello world!’</a></td>
+      <td style="text-align: left"><a href="#your-first-animation---the-hello-world">4.1. The ‘Hello world!’</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#tracing-a-cycloid">Animate a Cycloid</a></td>
+      <td style="text-align: left"><a href="#tracing-a-cycloid">5. Animate a Cycloid</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#the-final-script">Final script for the Cycloid</a></td>
+      <td style="text-align: left"><a href="#the-final-script">5.1. Final script for the Cycloid</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="#a-bouns-project">A Bonous Project</a></td>
+      <td style="text-align: left"><a href="#a-bouns-project">6. A Bonous Project</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
@@ -97,7 +97,7 @@ reread #optional
 
 <h2 id="your-first-animation---the-hello-world">Your First Animation - The ‘Hello world!’</h2>
 
-<p><img src="/assets/images/sinetrain.gif" alt="Sine Train" width="300" /></p>
+<p><img src="./assets/images/sinetrain.gif" alt="Sine Train" width="300" /></p>
 
 <pre><code class="language-gnuplot">reset
 set term qt
@@ -178,7 +178,7 @@ set term qt
 set size ratio -1
 set nokey
 set xrange[-pi:7*pi] 
-# set maximum range greater than 2*pi*r*loop_no
+# set maximum range greater than 2*pi*r*number_of_rotation
   
 set yrange[0:5] 
 # must be grater than radius of circle
@@ -188,21 +188,22 @@ set yrange[0:5]
 set parametric
   
 # setting up the function
-cirX(r, i, t) = r*i + r*cos(t)
-cirY(r, i, t)= r + r*sin(t)
+cirX(r, i, par) = r*i + r*cos(par)
+cirY(r, i, par)= r + r*sin(par)
 px(r, i) = r*i + r*cos(i)
 py(r, i) = r + r*sin(i)
 
 # Defining the radius and coversion factor
 s = 2
 conv = pi/180
-
+#multiplication with 2 emphasise the fact we will have 2 full rotation 
 do for[deg=0:360*2]{
 
     rad = deg*conv
       
     # plotting the circle for each instances
     # If you haven't pass three argument, you must pass only s and t through cirY!
+    # Here the 't' is really the 'intrinsic parameter of the GNUPlot
     plot cirX(s, rad, t), cirY(s, rad, t)
 
     # plot an arrow with nohead(actually the radius)
@@ -211,6 +212,8 @@ do for[deg=0:360*2]{
       
     # The circle object is a point on a circle  
     set object 2 circle at px(s, rad), py(s, rad) fc rgb 'red' size 0.05 fs solid front
+      
+    # 1 and 2 number is the identifier of the arrow and the circle respectively 
 }
 reread
 </code></pre>
@@ -218,17 +221,71 @@ reread
   </li>
 </ul>
 
-<p>If you see the output closely, the point is rotating anti-clockwise but the advancement of the circle in postive direction. To change the direction, just substract the angle by 2*pi from cirX and cirY function. Another point is that, the rotation starts from x-axis. I wanted to start the rotation from negative y-axis, so I’ll change the phase by -pi/2.</p>
+<p>If you see the output closely, the point is rotating anti-clockwise but the advancement of the circle in the postive direction. To change the direction, just substract the angle by 2*pi from cirX and cirY function. Another point is that, the rotation starts from x-axis. I wanted to start the rotation from negative y-axis, so I’ll change the phase by -pi/2.</p>
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+<h2 id="the-final-script">The Final Script</h2>
+
+<p>You may <a href="/assets/files/cycloid.gnu">download</a> the file.</p>
+
+<pre><code class="language-gnuplot"># setting up the enviorment
+reset 
+set term gif animate delay 4 size 854, 480  # You remember, the animation was too fast! ~ _ ~
+# So that, we added a delay here. It means a (4*0.01)s gap between every frame(i.e. 1/0.04=25frames/sec)
+# Size and delay are optional
+
+set output 'cycloid.gif'
+
+set size ratio -1
+set nokey
+
+set title 'Tracing a Cycloid'
+
+set xrange[-pi:9*pi] 
+# set maximum range greater than 2*pi*r*number_of_rotation
+  
+set yrange[0:5] 
+# must be grater than radius of circle
+# If you do not want to uplift the cirY by the radius, As I've discussed in previous section
+# then you must extend the yrange to the negative axis. like from -5 to +5 maybe!
+
+set parametric
+  
+# setting up the set of functions
+cirX(r, i, t) = r*i + r*cos(2*pi-t)
+cirY(r, i, t)= r + r*sin(2*pi-t)
+px(r, i) = r*i + r*cos(2*pi-i-pi/2)
+py(r, i) = r + r*sin(2*pi-i-pi/2)
+
+# Defining the radius and coversion factor
+s = 2
+conv = pi/180
+
+do for[deg=0:360*2]{
+
+    rad = deg*conv
+    
+    set title sprintf("Angle: %4.2f (in Rad-Clockwise)", rad)
+    # sprintf function is simillar to that of a printf in the C language. 
+    # plotting the circle for each instances
+    # If you haven't pass three argument, you must pass only s and t through cirY, otherwise there will be an runtime error!
+    plot cirX(s, rad, t), cirY(s, rad, t)
+
+    # plot an arrow with nohead(actually the radius). You may ommit the 'nohead' statement
+    # Notice that, we plot the arrow from s*rad (linear distance traversed by the circle.)
+    set arrow 1 nohead from s*rad, s to px(s, rad), py(s,rad) lc rgb 'red' lw 0.2
+      
+    # The circle object is a point on a circle. You may like to change the colour!
+    set object 2 circle at px(s, rad), py(s, rad) fc rgb 'blue' size 0.3 fs solid front
+    
+    # plot the trajectory
+    set object deg+1 circle at px(s, rad), py(s, rad) fc rgb 'red' size 0.09 fs solid front
+    
+    # 'deg+1' keep track of the object and once plotted it will not erased in contrast with object 2.
+    # This is the general trick to plot the trajectory of a dynamical system.
+  }
+  
+set out
+</code></pre>
+<p>The output will be very much simillar to the <a href="#tracing-a-cycloid">above</a> one. You may like to use this <a href="https://ezgif.com/" target="_blank">website</a> to speedup or reduce the size of GIF, or maybe you want to convert the GIF into a video!</p>
 
 :ET
