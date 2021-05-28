@@ -5,4 +5,5 @@ google_analytics:
 theme: jekyll-theme-midnight
 
 author: Arabindo
-author_url: arabindo@pm.me
+author_url: #
+email: 'mailto:arabindo@pm.me'
