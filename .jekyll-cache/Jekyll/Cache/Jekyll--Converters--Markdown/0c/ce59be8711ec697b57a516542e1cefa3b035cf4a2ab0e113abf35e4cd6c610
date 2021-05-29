@@ -1,4 +1,4 @@
-I"M<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
+I"M<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
 
 <blockquote>
   <p><strong>DISCLAIMER:</strong> The <a href="#tracing-a-cycloid">“Animate a Cycloid”</a> topic is developed step by step. There is a some repeatation of large code blocks. So it may seems to be lengthy but it is actually not!</p>
@@ -103,7 +103,7 @@ reread #optional
 
 <h2 id="your-first-animation---the-hello-world">Your First Animation - The ‘Hello world!’</h2>
 
-<p><img src="./assets/images/sinetrain.gif" alt="Sine Train" width="300" /></p>
+<p><img src="./assets/images/sinetrain.gif" alt="sinetrain" /></p>
 
 <pre><code class="language-gnuplot">reset
 set term qt

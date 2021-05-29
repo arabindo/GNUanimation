@@ -51,7 +51,7 @@ Now let's have a train of sine wave
 
 ## Your First Animation - The 'Hello world!'
 
-<img src="./assets/images/sinetrain.gif" alt="Sine Train" width = 300>
+![sinetrain](./assets/images/sinetrain.gif)
 
 ```gnuplot
 reset
