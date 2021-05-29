@@ -174,7 +174,7 @@ reread #you must be executing Ctrl+C in the terminal to stop the execution.
 ```
 ![output](/assets/images/inter.gif)
 
-If you inspect the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the x-axis. I wanted to start the rotation from the negative y-axis, so I'll change the phase by pi/2.
+If you inspect the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the line y=radius line. I wanted to start the rotation from y=0, so I'll change the phase by pi/2.
 
 ## The Final Script
 
