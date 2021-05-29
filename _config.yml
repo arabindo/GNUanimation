@@ -1,9 +1,10 @@
-title: Animation with GNUPLOT
+title: Animation with GNUPlot
 description: An Introduction to visulaization of Physical system
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-midnight
-
+highlighter: rouge
 author: Arabindo
-author_url: #
-email: 'mailto:arabindo@pm.me'
+author_url: "https://arabindo.github.io"
+author_email: "mailto:arabindo@pm.me"
+disqus-id: arabindo

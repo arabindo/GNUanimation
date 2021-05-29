@@ -1,5 +1,7 @@
 ---
 layout: default
+date: "29th May, 2021"
+comment: true
 ---
 
 ![Animation](./assets/images/multiCycl.gif)
@@ -10,14 +12,15 @@ layout: default
 
 |**Simple Animation**| **Animate simple physical system** | **Animate using Data file** | **Conclusion** |
 |:---|:---:|:---:|:-----:|
-|[1. Introduction](#introduction) | [1. Animating systems from numerical solution of EOM](/GNUanimation/eom) | Coming Soon! | Coming Soon! |
-|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](/eom#appendix) | 
+|[1. Introduction](#introduction) | [1. Animate a system from numerical solution of EOM](./eom) | Coming Soon! | Coming Soon! |
+|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom#appendix) | 
 |[3. The Final Goal](#the-final-goal)                            |
 |[4. Scripted GNUPlot](#scripted-gnuplot)			  |
 |[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)|
 |[5. Animate a Cycloid](#tracing-a-cycloid)|
 |[5.1. Final script for the Cycloid](#the-final-script)|
-|[6. A Bonus Project](#a-bonus-project)|
+|[6. Be an active learner](#be-an-active-learner)|
+|[7. A Bonus Project](#a-bonus-project)|
 
 # Introduction
 
@@ -171,7 +174,7 @@ reread #you must be executing Ctrl+C in the terminal to stop the execution.
 ```
 ![output](/assets/images/inter.gif)
 
-If you see the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the x-axis. I wanted to start the rotation from the negative y-axis, so I'll change the phase by pi/2.
+If you inspect the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the x-axis. I wanted to start the rotation from the negative y-axis, so I'll change the phase by pi/2.
 
 ## The Final Script
 
@@ -182,7 +185,8 @@ If you see the output closely, the point is rotating anti-clockwise but the adva
 ```gnuplot
 # setting up the enviorment
 reset 
-set term gif animate delay 4 size 854, 480  # You remember, the animation was too fast! ~ _ ~
+set term gif animate delay 4 size 854, 480  
+# You remember, the animation was too fast! ~ _ ~
 # So that, we added a delay here. It means a (4*0.01)s gap between every frame(i.e. 1/0.04=25frames/sec)
 # Size and delay are optional
 
@@ -244,6 +248,14 @@ set out
 
 The output will be very much similar to the [above](#tracing-a-cycloid) one. You may like to use this [website](https://ezgif.com/){:target="_blank"} to speed up or reduce the size of GIF, or maybe you want to convert the GIF into a video!
 
+## Be an active learner
+
+> **If you're having any difficulty, you can always contact me. But it'll be better if you do comment below this post. Since community learning is the best thing that one can have!**
+
+> **The only thing I'm asking in return, please share your feedback, either by email/social-media or comment here. Happy Learning!**
+
+[Next Page](./eom)
+
 ## A Bonus Project
 
 #### Are you wondering how to have an animation that I’ve used at the top of this page? Okay, that’s a project for you! You can test your understanding by plotting that animation. Here are some tips you may find useful for this problem:
@@ -264,17 +276,4 @@ To access the elements you may use array_name[index]. In GNUPlot the index start
 
 - To keep the track of trajectory of the corresponding radius vectors, use the identifier in the following form: (angle+j)**j [Here j stands for different circles like 1, 2, 3- can be identified as the index of the inner loop] so that the identifier is varied widely for different objects. Then it'll be easier for GNUPlot to keep track of the various different object.
 
-[Next Page](/eom)
-{% comment %}
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-{% endcomment %}
-
+[Next Page](./eom)

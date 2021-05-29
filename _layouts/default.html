@@ -36,13 +36,21 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
-          <span class="credits left">By, <a href="{{ site.email }}">{{ site.author }}</a></span><br>
-          <span class="credits left">For any error/mistakes feel free to contact me at <a href="mailto:arabindo@pm.me">arabindo[at]pm[dot]me</a></span>
+          <span class="credits left">By, <a href="{{ site.author_url }}" target="_blank">{{ site.author }}</a> 
+          {% if page.date %} on {{ page.date }} {% endif %} </span>
+          {% if page.comment %}
+          <span class="credits right"> <a href="{{post.url | absolute_url}}#disqus_thread"> Comments </a></span>
+          {% endif %}
+          <br>
+          <span class="credits left">For any error/mistakes feel free to contact me at <a href="{{ site.author_email }}">arabindo@pm.me</a></span>
         </div>
 
         {{ content }}
 
       </section>
+      {% if page.comment %}
+       {% include disqus.html %}
+      {% endif %}
 
     </div>
 
@@ -57,8 +65,8 @@
       </script>
     {% endif %}
     <footer>
-    	<span class="credits left">Project maintained by <a href="{{ site.author_url }}">{{ site.author }}</a></span>
-       <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+    	<span class="credits left">Project maintained by <a href="{{ site.author_url }}" target="_blank">{{ site.author }}</a></span>
+       <span class="credits right">Powered bt GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham" target="_blank">mattgraham</a></span>
     </footer>
   </body>
 </html>
