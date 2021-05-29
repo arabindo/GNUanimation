@@ -252,13 +252,13 @@ The output will be very much similar to the [above](#tracing-a-cycloid) one. You
 
 > **If you're having any difficulty, you can always contact me. But it'll be better if you do comment below this post. Since community learning is the best thing that one can have!**
 
-> **The only thing I'm asking in return, please share your feedback, either by email/social-media or comment here. Happy Learning!**
+> **The only thing I'm asking in return, please share your feedback, either by email/social-media or comment here.**
 
 [Next Page](./eom)
 
 ## A Bonus Project
 
-#### Are you wondering how to have an animation that I’ve used at the top of this page? Okay, that’s a project for you! You can test your understanding by plotting that animation. Here are some tips you may find useful for this problem:
+#### Are you wondering how to have an animation that I’ve used at the top of this page? Okay, that’s a project for you! You can test your understanding by plotting that animation. Here are some tips(Or you can develop your own technique, it's your choice) you may find useful for this problem:
 
 > These tips may not seem to be clear unless you really start to work on the problem. Only then you'll understand what I'm talking about. 
 
