@@ -13,4 +13,5 @@ Here I'll demonstrate, by taking a mechanical problem (Goldstein: 8.19, 3rd Edit
 
 ![pendulum](/assets/images/pendulum.gif)
 
+
 [back](./)

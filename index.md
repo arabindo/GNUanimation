@@ -13,7 +13,7 @@ comment: true
 |**Simple Animation**| **Animate simple physical system** | **Animate using Data file** | **Conclusion** |
 |:---|:---:|:---:|:-----:|
 |[1. Introduction](#introduction) | [1. Animate a system from numerical solution of EOM](./eom.html) | Coming Soon! | [Resources](./conclusion.html#resources) |
-|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom.html#appendix) | 
+|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom.html) | 
 |[3. The Final Goal](#the-final-goal)                            |
 |[4. Scripted GNUPlot](#scripted-gnuplot)			  |
 |[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)|
@@ -276,4 +276,4 @@ To access the elements you may use array_name[index]. In GNUPlot the index start
 
 - To keep the track of trajectory of the corresponding radius vectors, use the identifier in the following form: (angle+j)**j [Here j stands for different circles like 1, 2, 3- can be identified as the index of the inner loop] so that the identifier is varied widely for different objects. Then it'll be easier for GNUPlot to keep track of the various different object.
 
-[Next Page](./eom)
+[Next Page](./eom.html)
