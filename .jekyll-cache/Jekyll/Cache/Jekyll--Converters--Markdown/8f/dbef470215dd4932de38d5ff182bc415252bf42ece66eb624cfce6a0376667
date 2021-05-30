@@ -1,4 +1,4 @@
-I"M<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
+I"�M<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
 
 <blockquote>
   <p><strong>DISCLAIMER:</strong> The <a href="#tracing-a-cycloid">“Animate a Cycloid”</a> topic is developed step by step. There is a some repeatation of large code blocks. So it may seems to be lengthy but it is actually not!</p>
@@ -18,13 +18,13 @@
   <tbody>
     <tr>
       <td style="text-align: left"><a href="#introduction">1. Introduction</a></td>
-      <td style="text-align: center"><a href="./eom">1. Animate a system from numerical solution of EOM</a></td>
+      <td style="text-align: center"><a href="./eom.html">1. Animate a system from numerical solution of EOM</a></td>
       <td style="text-align: center">Coming Soon!</td>
-      <td style="text-align: center">Coming Soon!</td>
+      <td style="text-align: center"><a href="./conclusion#resources">Resources</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#why-gnuplot">2. Why GNUPlot</a></td>
-      <td style="text-align: center"><a href="./eom#appendix">2. Appendix- On RK4 method</a></td>
+      <td style="text-align: center"><a href="./eom.html#appendix">2. Appendix- On RK4 method</a></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
@@ -230,7 +230,7 @@ reread
   </li>
 </ul>
 
-<p>If you inspect the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the x-axis. I wanted to start the rotation from the negative y-axis, so I’ll change the phase by pi/2.</p>
+<p>If you inspect the output closely, the point is rotating anti-clockwise but the advancement of the circle in the positive direction. To change the direction, just subtract the angle by 2*pi from cirX and cirY function. Another point is that the rotation starts from the line y=radius line. I wanted to start the rotation from y=0, so I’ll change the phase by pi/2.</p>
 
 <h2 id="the-final-script">The Final Script</h2>
 
@@ -314,14 +314,14 @@ set out
 </blockquote>
 
 <blockquote>
-  <p><strong>The only thing I’m asking in return, please share your feedback, either by email/social-media or comment here. Happy Learning!</strong></p>
+  <p><strong>The only thing I’m asking in return, please share your feedback, either by email/social-media or comment here.</strong></p>
 </blockquote>
 
-<p><a href="./eom">Next Page</a></p>
+<p><a href="./eom.html">Next Page</a></p>
 
 <h2 id="a-bonus-project">A Bonus Project</h2>
 
-<h4 id="are-you-wondering-how-to-have-an-animation-that-ive-used-at-the-top-of-this-page-okay-thats-a-project-for-you-you-can-test-your-understanding-by-plotting-that-animation-here-are-some-tips-you-may-find-useful-for-this-problem">Are you wondering how to have an animation that I’ve used at the top of this page? Okay, that’s a project for you! You can test your understanding by plotting that animation. Here are some tips you may find useful for this problem:</h4>
+<h4 id="are-you-wondering-how-to-have-an-animation-that-ive-used-at-the-top-of-this-page-okay-thats-a-project-for-you-you-can-test-your-understanding-by-plotting-that-animation-here-are-some-tipsor-you-can-develop-your-own-technique-its-your-choice-you-may-find-useful-for-this-problem">Are you wondering how to have an animation that I’ve used at the top of this page? Okay, that’s a project for you! You can test your understanding by plotting that animation. Here are some tips(Or you can develop your own technique, it’s your choice) you may find useful for this problem:</h4>
 
 <blockquote>
   <p>These tips may not seem to be clear unless you really start to work on the problem. Only then you’ll understand what I’m talking about.</p>

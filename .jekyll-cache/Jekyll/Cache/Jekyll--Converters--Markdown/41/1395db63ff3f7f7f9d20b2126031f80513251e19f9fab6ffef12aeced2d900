@@ -1,0 +1,20 @@
+I"î<blockquote>
+  <p>This page is under development!</p>
+</blockquote>
+
+<p><a href="./">Home</a></p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li>A comprehensive <a href="https://people.duke.edu/~hpgavin/gnuplot.html" target="_blank">guide to GNUPlot</a></li>
+  <li>A minimal and <a href="http://hirophysics.com/gnuplot/gnuplot.html" target="_blank">useful mannual</a> for quick and descriptive guide - My personal favourite.</li>
+  <li><a href="http://www.gnuplotting.org/" target="_blank">A large collection of examples.</a></li>
+  <li>
+    <p>The official user <a href="http://www.gnuplot.info/documentation.html" target="_blank">mannual of GNUPlot</a></p>
+  </li>
+  <li>This is the blog from where I got the inspiration -<a href="https://hirossoliloquy.blogspot.com/" target="_blank">hirossoliloquy</a>. You can find that cycloid animation there too. But the approach is very different from mine. But, yes! This is the place from where I learnt a lot of tricks.</li>
+</ul>
+
+<p><a href="./">back</a></p>
+:ET

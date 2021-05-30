@@ -12,8 +12,8 @@ comment: true
 
 |**Simple Animation**| **Animate simple physical system** | **Animate using Data file** | **Conclusion** |
 |:---|:---:|:---:|:-----:|
-|[1. Introduction](#introduction) | [1. Animate a system from numerical solution of EOM](./eom) | Coming Soon! | [Resources](./conclusion#resources) |
-|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom#appendix) | 
+|[1. Introduction](#introduction) | [1. Animate a system from numerical solution of EOM](./eom.html) | Coming Soon! | [Resources](./conclusion.html#resources) |
+|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom.html#appendix) | 
 |[3. The Final Goal](#the-final-goal)                            |
 |[4. Scripted GNUPlot](#scripted-gnuplot)			  |
 |[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)|
@@ -254,7 +254,7 @@ The output will be very much similar to the [above](#tracing-a-cycloid) one. You
 
 > **The only thing I'm asking in return, please share your feedback, either by email/social-media or comment here.**
 
-[Next Page](./eom)
+[Next Page](./eom.html)
 
 ## A Bonus Project
 
