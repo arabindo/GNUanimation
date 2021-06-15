@@ -5,7 +5,7 @@ date: "29th May, 2021"
 
 [Home](./)
 
-> This page is under development! I will post it by the next week(maybe!). It really depends upon the responses I get from you!
+> This page is under development! I will post it soon!. It really depends upon the responses I get from you!
 
 ## Animation from numerical solution of Equation of Motion.
 
