@@ -1,4 +1,4 @@
-I"xG<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
+I"�I<p><img src="./assets/images/multiCycl.gif" alt="Animation" /></p>
 
 <blockquote>
   <p><strong>DISCLAIMER:</strong> The <a href="#tracing-a-cycloid">“Animate a Cycloid”</a> topic is developed step by step. There is a some repeatation of large code blocks. So it may seems to be lengthy but it is actually not!</p>
@@ -11,51 +11,51 @@
     <tr>
       <th style="text-align: left"><a href="#"><strong>Simple Animation</strong></a></th>
       <th style="text-align: center"><a href="./eom.html"><strong>Animate simple physical system From numerical solution</strong></a></th>
-      <th style="text-align: center"><strong>Animate using Data file</strong></th>
-      <th style="text-align: center"><strong>Conclusion</strong></th>
+      <th style="text-align: center"><a href="(./eom1.html)"><strong>Animate using Data file (Kapitza Pendulum as eg.)</strong></a></th>
+      <th style="text-align: center"><a href="./conclusion.html"><strong>Conclusion</strong></a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><a href="#introduction">1. Introduction</a></td>
-      <td style="text-align: center"><a href="./eom.html#problem-statement">1. Problem Statement</a></td>
-      <td style="text-align: center">Coming Soon!</td>
+      <td style="text-align: center"><a href="./eom.html#problem-statement">Problem Statement</a></td>
+      <td style="text-align: center"><a href="./eom1.html#introduction">Introdution</a></td>
       <td style="text-align: center"><a href="./conclusion.html#resources">Resources</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#why-gnuplot">2. Why GNUPlot</a></td>
-      <td style="text-align: center"><a href="./eom.html#working-equations">2. Working Equations</a></td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom.html#working-equations">Working Equations</a></td>
+      <td style="text-align: center"><a href="./eom1.html#the-hello-world---once-again">The “Hello World!”</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#the-final-goal">3. The Final Goal</a></td>
-      <td style="text-align: center"><a href="./eom.html#few-remarks-on-function">3. Remarks on Function</a></td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom.html#few-remarks-on-function">Remarks on Function</a></td>
+      <td style="text-align: center"><a href="./eom1.html#working-equations-for-kapitza-pendulum">Working Equations</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#scripted-gnuplot">4. Scripted GNUPlot</a></td>
-      <td style="text-align: center"><a href="./eom.html#wrapping-up-the-final-code">4. The Final Code</a></td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom.html#wrapping-up-the-final-code">The Final Code</a></td>
+      <td style="text-align: center"><a href="./eom1.html#look-at-phase-space">Phase Space</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#your-first-animation---the-hello-world">4.1. The ‘Hello world!’</a></td>
-      <td style="text-align: center"><a href="./eom.html#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system">5. Appendix-I(Derivations)</a></td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom.html#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system">Appendix-I(Derivations)</a></td>
+      <td style="text-align: center"><a href="./eom1.html#the-kapitza-pendulum">Final Code</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#tracing-a-cycloid">5. Animate a Cycloid</a></td>
-      <td style="text-align: center"><a href="./eom.html#appendix-2---rk-4-method">6. Appendix-II(RK-4)</a></td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom.html#appendix-2---rk-4-method">Appendix-II(RK-4)</a></td>
+      <td style="text-align: center"><a href="./eom1.html#configuration-space">Configuration Space</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#the-final-script">5.1. Final script for the Cycloid</a></td>
       <td style="text-align: center"> </td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: center"><a href="./eom1.html#appendix-i-derivations">Appendix-I (Derivations)</a></td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
@@ -290,5 +290,5 @@ reread
   </li>
 </ul>
 
-<p><a href="./eom.html">Next Page</a></p>
+<p><a href="./eom.html">Next Page</a> | <a href="./eom1.html">Second Page</a> | <a href="./conclusion.html">Resources</a></p>
 :ET
