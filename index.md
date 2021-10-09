@@ -10,15 +10,15 @@ comment: true
 
 <center> <h2> Table of Contents </h2> </center>
 
-|**Simple Animation**| **Animate simple physical system** | **Animate using Data file** | **Conclusion** |
+|[**Simple Animation**](#)| [**Animate simple physical system From numerical solution**](./eom.html) | [**Animate using Data file**]((./eom1.html)) | [**Conclusion**](./conclusion.html) |
 |:---|:---:|:---:|:-----:|
-|[1. Introduction](#introduction) | [1. Animate a system from numerical solution of EOM](./eom.html) | Coming Soon! | [Resources](./conclusion.html#resources) |
-|[2. Why GNUPlot](#why-gnuplot)   | [2. Appendix- On RK4 method](./eom.html) | 
-|[3. The Final Goal](#the-final-goal)                            |
-|[4. Scripted GNUPlot](#scripted-gnuplot)			  |
-|[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)|
-|[5. Animate a Cycloid](#tracing-a-cycloid)|
-|[5.1. Final script for the Cycloid](#the-final-script)|
+|[1. Introduction](#introduction) | [Problem Statement](./eom.html#problem-statement) | [Introdution](./eom1.html#introduction) | [Resources](./conclusion.html#resources) |
+|[2. Why GNUPlot](#why-gnuplot)   | [Working Equations](./eom.html#working-equations) | [The "Hello World!"](./eom1.html#the-hello-world---once-again) |
+|[3. The Final Goal](#the-final-goal) | [Remarks on Function](./eom.html#few-remarks-on-function) | [Working Equations](./eom1.html#working-equations-for-kapitza-pendulum) |
+|[4. Scripted GNUPlot](#scripted-gnuplot) | [The Final Code](./eom.html#wrapping-up-the-final-code) | [Phase Space](./eom1.html#look-at-phase-space) |
+|[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)| [Appendix-I(Derivations)](./eom.html#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system) | [Kapitza Pendulum](./eom1.html#the-kapitza-pendulum) |
+|[5. Animate a Cycloid](#tracing-a-cycloid)| [Appendix-II(RK-4)](./eom.html#appendix-2---rk-4-method) | [Configuration Space](./eom1.html#configuration-space) |
+|[5.1. Final script for the Cycloid](#the-final-script)| |[Appendix-I (Derivations)](./eom1.html#appendix-i-derivations)
 |[6. Be an active learner](#be-an-active-learner)|
 |[7. A Bonus Project](#a-bonus-project)|
 
@@ -32,7 +32,7 @@ GNUPlot is simple, elegant and great for `First and Fast` learning. Although the
 
 ## The Final Goal
 
-I believe, most of you is already equipped with Lagrangian and Hamiltonian formalism. So the idea is to show the technique to produce GIFs(Graphics Interchange Format) and then to show how to simulate a simple system when the Lagrangian(or Hamiltonian) of the system is is given a priori. After the second half, the reader must be able to animate simple systems of their choice. In a later post, I'll also show how to do animation from a data file. That will give you a wing to use GNUPlot with any other programming language. Although GNUPlot terminal can be linked to other programming languages, let's don't make thing complicated with that technical jargon. Now it's enough of hunky-junky. Let's get into the topic with the so-called 'hello-world GNUPlot script for the animation.
+I believe, most of you is already equipped with Lagrangian and Hamiltonian formalism. So the idea is to show the technique to produce GIFs(Graphics Interchange Format) and then to show how to simulate a simple system when the Lagrangian(or Hamiltonian) of the system is given a priori. After the second half, the reader must be able to animate simple systems of their choice. In a later post, I'll also show how to do animation from a data file. That will give you a wing to use GNUPlot with any other programming language. Although GNUPlot terminal can be linked to other programming languages, let's don't make thing complicated with that technical jargon. Now it's enough of hunky-junky. Let's get into the topic with the so-called 'hello-world GNUPlot script for the animation.
 
 # Scripted GNUPlot
 
@@ -46,6 +46,7 @@ plot cos(x)
 reread #optional
 ```
 > Sometimes it is convenient to put the `reread` statement at the end line. It'll keep the plotting window open. For some system, it may not be required for ordinary plotting. However, if you're using `reread`, then keep in your mind that closing the plot window will not do the job, it'll pop up again. Rather you would like to execute `Ctrl+C` in the terminal to stop the execution and close the plotting window.
+*Alternativel, for static plots, one may use `--persists` argument in the command line, like `gnuplot cos.gnu --persists`
 
 Now let's have a train of sine wave
 
@@ -178,73 +179,9 @@ If you inspect the output closely, the point is rotating anti-clockwise but the 
 
 ## The Final Script
 
-> You may [download](/assets/files/cycloid.gnu) the file.
-
 > Here we will set `gif animate` type terminal and an output file with a .gif extension. `gif animate` usually take a long time(strictly speaking, depends upon the computational complexity of the problem and the number of frame/instance you are producing) to produce the output file. So you may need to wait for a while. 
 
-```gnuplot
-# setting up the enviorment
-reset 
-set term gif animate delay 4 size 854, 480  
-# You remember, the animation was too fast! ~ _ ~
-# So that, we added a delay here. It means a (4*0.01)s gap between every frame(i.e. 1/0.04=25frames/sec)
-# Size and delay are optional
-
-set output 'cycloid.gif'
-
-set size ratio -1
-set nokey
-
-set title 'Tracing a Cycloid'
-
-set xrange[-pi:9*pi] 
-# set maximum range greater than 2*pi*r*number_of_rotation
-  
-set yrange[0:5] 
-# must be grater than the radius of circle
-# If you do not want to uplift the cirY by the radius, As I've discussed in previous section
-# then you must extend the yrange to the negative axis. like from -3 to +3 maybe, for the circle with 2unit radius.
-
-set parametric
-  
-# setting up the set of functions
-cirX(r, i, t) = r*i + r*cos(2*pi-t)
-cirY(r, i, t)= r + r*sin(2*pi-t)
-px(r, i) = r*i + r*cos(2*pi-i-pi/2)
-py(r, i) = r + r*sin(2*pi-i-pi/2)
-
-# Defining the radius and coversion factor
-s = 2
-conv = pi/180
-
-# multiplication by 2 emphasize the fact we will have 2 full rotation 
-do for[deg=0:360*2]{
-
-    rad = deg*conv
-    
-    # sprintf function is simillar to that of a printf in the C language. 
-    set title sprintf("Angle: %4.2f (in Rad-Clockwise)", rad)
-    
-    # plotting the circle for each instances
-    # If you haven't pass three argument, you must pass only s and t through cirY, otherwise there will be an runtime error!
-    plot cirX(s, rad, t), cirY(s, rad, t)
-
-    # plot an arrow with nohead(actually the radius). You may omit the 'nohead' statement
-    # Notice that, we plot the arrow from s*rad (linear distance traversed by the center of the circle.)
-    set arrow 1 nohead from s*rad, s to px(s, rad), py(s,rad) lc rgb 'red' lw 0.2
-      
-    # The circle object is a point on a circle. You may like to change the colour!
-    set object 2 circle at px(s, rad), py(s, rad) fc rgb 'blue' size 0.3 fs solid front
-    
-    # plot the trajectory
-    set object deg+1 circle at px(s, rad), py(s, rad) fc rgb 'red' size 0.09 fs solid front
-    
-    # 'deg+1' keep track of the object and once plotted it will not erased in contrast with object 2.
-    # This is the general trick to plot the parameterized trajectory of a dynamical system.
-  }
-  
-set out
-```
+<script src="https://gist.github.com/arabindo/3ebfe901af4472b1659c959beef92a43.js"></script>
 
 The output will be very much similar to the [above](#tracing-a-cycloid) one. You may like to use this [website](https://ezgif.com/){:target="_blank"} to speed up or reduce the size of GIF, or maybe you want to convert the GIF into a video!
 
@@ -263,7 +200,7 @@ The output will be very much similar to the [above](#tracing-a-cycloid) one. You
 > These tips may not seem to be clear unless you really start to work on the problem. Only then you'll understand what I'm talking about. 
 
 - GNUPlot support array type variable declaration. So you can define two arrays, one for colour and another for the different radius of two circles. 
-  - Another important point to note: while declaring an array for the colour combination use Hexa code for the colour. There are plenty of websites where you can find the Hexa code for the different colours
+  - Another important point to note: while declaring an array for the colour combination, use Hexa code for the colour. There are plenty of websites where you can find the Hexa code for the different colours.
   
 ```gnuplot
 array array_name=[element1, element2, element3....]
@@ -272,8 +209,10 @@ To access the elements you may use array_name[index]. In GNUPlot the index start
 
 - You may want to use a nested loop while plotting different instances.
 
-- THIS IS MAYBE OPTIONAL: If you're using a nested loop, make sure you plot all the circles using a single `plot` command before you start an inner loop to plot the different radius vector and trajectory corresponding to those vectors. For my machine, GNUPlot was unable to take that huge load of plotting the circles from an inner loop. So I was generating an output with blinking circles.
+- THIS IS, MAYBE, OPTIONAL: If you're using a nested loop, make sure you plot all the circles using a single `plot` command before you start an inner loop to plot the different radius vector and trajectory corresponding to those vectors. For my machine, GNUPlot was unable to take that huge load of plotting the circles from an inner loop. So I was generating an output with blinking circles.
 
 - To keep the track of trajectory of the corresponding radius vectors, use the identifier in the following form: (angle+j)**j [Here j stands for different circles like 1, 2, 3- can be identified as the index of the inner loop] so that the identifier is varied widely for different objects. Then it'll be easier for GNUPlot to keep track of the various different object.
 
-[Next Page](./eom.html)
+* Here I've uploaded the [solution](./code.html#multCycl) ;)
+
+[Next Page](./eom.html) \| [Second Page](./eom1.html) \| [Resources](./conclusion.html)

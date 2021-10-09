@@ -1,0 +1,62 @@
+I"�<p><a href="./">Home</a></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Here we are at the very end of this animation blog. Now we are equipped with a lot of features of GnUPlot. The last thing I wanted to show, how to animate from a dat or txt file. You may be able to plot a static graph from files but animating from a file requires reading data line by line. at first, we will go through a simple example, which will show all the essence of ‘animation from a data file’ then we will move on to simulate <strong>Kapitza Pendulum</strong>.</p>
+
+<h2 id="once-again-the-hello-world">Once Again The ‘Hello World’</h2>
+
+<p>Here I have generated a data file <a href="./data_gen.dat" download="">‘data_gen.dat’</a> using a Fortran program. You may see it <a href="./code.html#dat">here</a>.</p>
+
+<p>The code for GNUPlot is simple and self-explanatory ~</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reset
+set term qt
+unset key
+set title 'Test'
+set xlabel 'x-axis'
+set ylabel 'y-axis'
+set yrang[-2:2]
+set xrange[-101:101]
+n=2000
+do for[i=1:n]{
+plot 'test.dat' every ::1::i w l ls 1, \
+     'test.dat' every ::i::i pt 5
+}
+
+reread
+</code></pre></div></div>
+
+<blockquote>
+  <p>In the plot command, first line is meant to plot from the first line of data_gen.dat upto \(i^{th}\) line. The output must explain the need. The second line of plot is the point which is guiding the curve in this GIF.</p>
+</blockquote>
+
+<p><img src="./assets/images/cos.gif" alt="cos" /></p>
+
+<h2 id="working-equations-for-kapitza-pendulum">Working Equations for Kapitza Pendulum</h2>
+
+<p>It’s easy to show, (:P Never mind! See it <a href="#">here</a> ) the equations of motion are</p>
+
+<p>–equation–</p>
+
+<p>As we’ve done before</p>
+
+<p>–equation—</p>
+
+<blockquote>
+  <p>The Fortran code to solve the equations can be found <a href="./code#kp">here</a>. You may just download the generated <a href="./kp.dat" download="">file.</a></p>
+</blockquote>
+
+<h2 id="look-at-phase-space">Look at phase space</h2>
+
+<p>Before we simulate the Pendulum itself, let us simulate the phase space portrait. One can always do a static plot <code class="language-plaintext highlighter-rouge">p 'kp.dat' u 2:3 w l</code></p>
+
+<p>But it’s boring. In the previous example, we’ve seen how to do animation from data files. So you may try it yourself. Although I’m leaving the <a href="./code#kp-phase">code</a> that creates a GIF for you. This code may take longer in the first run as the number of frames is large.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/a4Mj1hEge2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="the-kapitza-pendulum">The Kapitza Pendulum</h2>
+
+<p>Here, we not only need to read the data line by line from the file but also need to store them in variable since we need them to use in drawing bobs and anchor, as we have done before. For this, I did a little trick here. I’ve plotted first and second column with white colour(see line no: ) meanwhile store them into variable. So, here we go~</p>
+
+:ET

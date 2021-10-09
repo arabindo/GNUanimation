@@ -64,6 +64,10 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
+    {% if page.math %}
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {% endif %}
     <footer>
     	<span class="credits left">Project maintained by <a href="{{ site.author_url }}" target="_blank">{{ site.author }}</a></span>
        <span class="credits right">Powered bt GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham" target="_blank">mattgraham</a></span>
