@@ -84,6 +84,6 @@ You may try to plot configuration space as well! That is column 1 vs Column 2.
 
 ## Appendix-I (Derivations)
 
-Will be updated by Monday night!
+For the derivation of Lagrangian and EOM, you may check out my [blog post](https://arabindo.github.io/blog/2021/kapitza-pendulum/) on Kapitza pendulum
 
 [Home](./) \| [Prev. Page](./eom.html) \| [Resources](./conclusion.html)
