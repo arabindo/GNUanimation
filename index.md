@@ -16,8 +16,8 @@ comment: true
 |[2. Why GNUPlot](#why-gnuplot)   | [Working Equations](./eom.html#working-equations) | [The "Hello World!"](./eom1.html#the-hello-world---once-again) |
 |[3. The Final Goal](#the-final-goal) | [Remarks on Function](./eom.html#few-remarks-on-function) | [Working Equations](./eom1.html#working-equations-for-kapitza-pendulum) |
 |[4. Scripted GNUPlot](#scripted-gnuplot) | [The Final Code](./eom.html#wrapping-up-the-final-code) | [Phase Space](./eom1.html#look-at-phase-space) |
-|[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)| [Appendix-I(Derivations)](./eom.html#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system) | [Final Code](./eom1.html#the-kapitza-pendulum) |
-|[5. Animate a Cycloid](#tracing-a-cycloid)| [Appendix-II(RK-4)](./eom.html#appendix-2---rk-4-method) | [Configuration Space](./eom1.html#configuration-space) |
+|[4.1. The 'Hello world!'](#your-first-animation---the-hello-world)|  | [Final Code](./eom1.html#the-kapitza-pendulum) |
+|[5. Animate a Cycloid](#tracing-a-cycloid)|   | [Configuration Space](./eom1.html#configuration-space) |
 |[5.1. Final script for the Cycloid](#the-final-script)| |[Appendix-I (Derivations)](./eom1.html#appendix-i-derivations)
 |[6. Be an active learner](#be-an-active-learner)|
 |[7. A Bonus Project](#a-bonus-project)|

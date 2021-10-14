@@ -40,7 +40,7 @@ EOM for \\(x\\) coordinate:
 EOM for \\(\theta\\) coordinate:
 \\[l^2\ddot{\theta} + l\ddot{x}(\cos\theta + 2ax\sin\theta) + 2al\dot{x}^2 \sin\theta + gl\sin\theta = 0 \\]
 
-To apply numerical methods (We will be using [Runge-Kutta 4-th order](#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system) method), we need to convert them to the first order.
+To apply numerical methods (We will be using Runge-Kutta 4-th order method), we need to convert them to the first order.
 
 \\[\dot{x} = X \\]
 
