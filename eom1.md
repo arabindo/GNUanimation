@@ -11,7 +11,7 @@ date: "9th Oct, 2021"
 
 ## Content
 
-* 1. Introduction 2. The 'Hellow World!' 3. Working Equations 4. Phase space 5. Final code 6. Appendix-I(Derivations) 
+* 1.Introduction 2. The 'Hellow World!' 3. Working Equations 4. Phase space 5. Final code 6. Appendix-I(Derivations) 
 
 ## Introduction
 

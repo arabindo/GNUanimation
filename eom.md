@@ -7,20 +7,20 @@ date: "9th Oct, 2021"
 
 [Home](./) \| [Next Page](./eom1.html) \| [Resources](./conclusion.html)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rhG1gG7Dblc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ryhVL7ucbj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 ## Contents 
 
-* 1. Problem Statement 2. Working Equations 3. Remarks on Function 4. The Final Code 5. Phase Potraits 6.1. Appendix-I(Derivations) 6.2 Appendix-II(RK-4 Method) 
+*  1.Problem Statement 2. Working Equations 3. Remarks on Function 4. The Final Code 5. Phase Potraits 6.1. Appendix-I(Derivations) 6.2 Appendix-II(RK-4 Method) 
 
 > **If you remember our *[The Final Goal](./#the-final-goal)*, it is the time to start working on that.**
 
 ## Problem Statement
 
 The system is due to a problem from the classic Goldstein. The problem follows:
-> "The point of suspension of a simple pendulum of length l and the mass m is constrained to move on a parabola \\( z=ax^2 \\) in the verticle plane. Derive the Hamiltonian governing the motion of pendulum and its point of suspension. Obtain the Hamilton's equation of motion." [Ref: Goldstein, Herbert & Poole, Charles & Safko, John. (3rd Ed). Classical Mechanics by H. Goldstein, C. Poole, and J. Safko. (Ch. 8, P. 19)]
+> "The point of suspension of a simple pendulum of length l and the mass m is constrained to move on a parabola \\( z=ax^2 \\) in the verticle plane. Derive the Hamiltonian governing the motion of pendulum and its point of suspension. Obtain the Hamilton's equation of motion." [Ref: Classical Mechanics by Goldstein, Herbert & Poole, Charles & Safko, John. (3rd Ed).(Ch. 8, Prob. 19)]
 
-Here our goal is to find the equation of motions, to solve them within the GNUPlot script, and to simulate the system directly there to produce the above GIF. On the next page we will see how to solve a problem in a programming language and use the saved data to produce such GIF with an example system - *Kapitza Pendulum*.
+Here our goal is to find the equation of motions, to solve them within the GNUPlot script, and to simulate the system directly there to produce the above GIF. On the next page we will see how to solve a problem in a programming language and use the saved data to produce such GIF with an example system - *Kapitza's Pendulum*.
 
 ## Working Equations
 
@@ -30,15 +30,15 @@ After a tedious algebra(see below) one can find the equation of motion from the 
 
 The lagrangian is
 
-\\[ L = \frac{1}{2}m \left[\dot{x}^2(1+4a^2 x^2) + l^2\dot{\theta}^2\right] + 2l\dot{x}\dot{\theta}(cos\theta + 2axsin\theta) - mg(ax^2-lcos\theta) \\]
+\\[ L = \frac{1}{2}m \left(\dot{x}^2(1+4a^2 x^2) + l^2\dot{\theta}^2 +  2l\dot{x}\dot{\theta}(\cos\theta + 2ax\sin\theta)\right)  - mg(ax^2-l\cos\theta) \\]
 
-It's easy to show (:p Never mind, see it [here](#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system)), the equations of motion are
+The equations of motion are
 
 EOM for \\(x\\) coordinate:
-\\[m \ddot{x} (1+4a^2 x^2) + 4ma\dot{x}^2x+2l\ddot{\theta}(cos\theta + 2axsin\theta)+2l\dot{\theta}^2(-sin\theta + 2axcos\theta) + 2magx = 0\\]
+\\[\ddot{x} (1+4a^2 x^2) + 4a\dot{x}^2x+l\ddot{\theta}(\cos\theta + 2ax\sin\theta)+l\dot{\theta}^2(-\sin\theta + 2ax\cos\theta) + 2agx = 0\\]
 
 EOM for \\(\theta\\) coordinate:
-\\[ml^2\ddot{\theta} + 2l\ddot{x}(cos\theta + 2axsin\theta) + 4al\dot{x}^2 sin\theta + mglsin\theta = 0 \\]
+\\[l^2\ddot{\theta} + l\ddot{x}(\cos\theta + 2ax\sin\theta) + 2al\dot{x}^2 \sin\theta + gl\sin\theta = 0 \\]
 
 To apply numerical methods (We will be using [Runge-Kutta 4-th order](#appendix-1---derivation-of-lagrangian-hamiltonian-and-eom-for-the-system) method), we need to convert them to the first order.
 
@@ -46,9 +46,9 @@ To apply numerical methods (We will be using [Runge-Kutta 4-th order](#appendix-
 
 \\[\dot{\theta} = \Theta \\]
 
-\\[\dot{X} = \frac{\frac{2sin\theta}{ml}(cos\theta + 2axsin\theta)(4alX^2 + mgl) - 4maX^2x - 2l\Theta^2(-sin \theta + 2axcos\theta) - 2mgax}{m(1+4a^2 x^2) - \left(2l(cos \theta + 2axsin\theta)\right)^2/ml^2 } \\]
+\\[\dot{X} = \frac{\sin\theta(\cos\theta + 2ax\sin\theta)(4aX^2 + g) - 4aX^2x - l\Theta^2(-\sin \theta + 2ax\cos\theta) - 2gax}{(1+4a^2 x^2) - \left(\cos \theta + 2ax\sin\theta\right)^2 } \\]
 
-\\[\dot{\Theta} = -\left(2l\dot{X}(cos\theta + 2axsin\theta) + 4alX^2sin\theta+mglsin\theta \right)/ml^2 \\]
+\\[\dot{\Theta} = -\left(\dot{X}(cos\theta + 2axsin\theta) + 2aX^2\sin\theta+g\sin\theta \right)/l \\]
 
 * First few minutes are recommended of this [lecture](https://youtu.be/nh4TFzg30eQ?list=PLbMVogVj5nJQKk1E7OUQs_TcW_zQoaO4t&t=525){:target="_blank"} (8:46-11:12) by V. Balakrishnan if you're not familiar with such exercise. Here you'll find an illuminating explanation.
 
@@ -69,13 +69,12 @@ ptime(tr) = sprintf("{A pendulum is costrained to move}\n\
 
 # Print parameters
 
-pparam(p, q, r, s, t) = sprintf("\
+pparam(q, r, s, t) = sprintf("\
 {/Times:Bold Parameters}\n\
-{/Times:Italic m} = %.2f [kg]\n\
 {/Times:Italic a} = %.2f (z=ax^2)\n\
 {/Times:Italic l} = %3.1f [m]\n\
 {/Times:Italic g} = %3.2f [m/s^2]\n\
-{/Times:Italic dt} = %.2f [s]\n", p, q, r, s, t) 
+{/Times:Italic dt} = %.2f [s]\n", q, r, s, t) 
 
 #Print initial conditions
 
@@ -102,20 +101,12 @@ Here I've shown two different phase potrait for two coordinates \\(x\\) and \\( 
 
 <table>
 <tr>
-<td><iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/-TSSBAGNbBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-<td><iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/NLCKT1m8qD0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<td><iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/ZVRorFBgrZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+<td><iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/ARniP4R7mo4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </td>
 
 </tr>
 </table>
-
-## Appendix 1 - Derivation of Lagrangian, Hamiltonian, and EOM for the system
-
-Will be updated by Monday night!
-
-## Appendix 2 - RK-4 method
-
-Will be updated by Monday night!
 
 [Home](./) \| [Next Page](./eom1.html) \| [Resources](./conclusion.html)
 
